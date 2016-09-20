@@ -125,7 +125,7 @@ res <- rma.uni(yi, vi, data=es, method="REML")
 
   # Plot results
 pdf(paste0("~/Dropbox/dudleylab/bioreabsorbable.stents/RandomEffectsPlots/plot_",sprintf("%02d", i),"_",outcomes[i],".pdf"))
-forest(res, slab=paste(input.subset$Study), atransf=exp)
+forest(res, slab=paste(gsub("\\.", " ", input.subset$Study)), atransf=exp)
   text(0, 5.2, paste("Random Effects Model", paste0(i,":"), gsub("\\.", " ", input.subset$Outcome.Measure), sep=" "))
   text(-1,7.2, paste0("Z value: ", round(res$zval, digits=3)))
   text(-1,6.9, paste0("P value: ", round(res$pval, digits=3)))
